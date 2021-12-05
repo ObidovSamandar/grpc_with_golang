@@ -1,0 +1,50 @@
+syntax ="proto3";
+
+package controllers;
+
+
+service AddUserService {
+    rpc AddUser(User) returns (OutPut) {};
+}
+
+service GetUserService {
+    rpc GetUser(GetDeleteUserRequest) returns (OutPut) {};
+}
+
+service GetAllUserService {
+    rpc GetAllUser(GetAllUserRequest) returns (OutPut) {};
+}
+
+service DeleteUserService {
+    rpc DeleteUser(GetDeleteUserRequest) returns (OutPut) {};
+}
+
+service UpdateUserService {
+    rpc UpdateUser (UpdateUserRequest) returns (OutPut) {};
+}
+
+message User{
+    string first_name = 1;
+    string last_name =2;
+    string email = 3;
+}
+
+message GetDeleteUserRequest {
+    string id = 1;
+}
+
+message UpdateUserRequest {
+    string user_id_for_update = 1;
+    string first_name = 2;
+    string last_name = 3;
+    string email = 4;
+}
+
+message OutPut{
+    string message = 1;
+}
+
+message GetAllUserRequest {}
+
+
+
